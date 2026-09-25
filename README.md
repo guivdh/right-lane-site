@@ -1,8 +1,10 @@
 # right-lane-site
 
-Pages publiques de l'app Right Lane, servies par GitHub Pages : https://guivdh.github.io/right-lane-site/
+Public pages of the Right Lane app, served by GitHub Pages: https://guivdh.github.io/right-lane-site/
 
-- `fr/terms.md` : conditions d'utilisation
-- `fr/privacy.md` : politique de confidentialité
+- `fr/terms.md`: terms of use
+- `fr/privacy.md`: privacy policy
 
-L'app télécharge ces fichiers Markdown (`raw.githubusercontent.com`) et les affiche elle-même. Modifier un fichier ici met à jour l'app sans nouvelle version. Syntaxe lue par l'app : titres `#` et `##`, paragraphes, listes `- `, `**gras**`, liens `[texte](url)`. Garder la date « Version du … » à jour.
+The app downloads these Markdown files from `raw.githubusercontent.com` and renders them itself, so editing a file here updates the app without a new release. The texts stay in French, the language of the app.
+
+Syntax understood by the app: `#` and `##` headings, paragraphs, `- ` lists, `**bold**` and `[text](url)` links. Links to the other page (`https://guivdh.github.io/right-lane-site/fr/privacy.html`) open it inside the app. Keep the "Version du …" date up to date.
