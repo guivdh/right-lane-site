@@ -56,4 +56,4 @@ Tu peux aussi porter plainte auprès de l'Autorité de protection des données :
 
 ## 8. Changements
 
-Cette politique peut changer. La version à jour est toujours affichée dans l'app et sur [cette page](https://guivdh.github.io/right-lane-site/fr/confidentialite.html), avec sa date.
+Cette politique peut changer. La version à jour est toujours affichée dans l'app et sur [cette page](https://guivdh.github.io/right-lane-site/fr/privacy.html), avec sa date.

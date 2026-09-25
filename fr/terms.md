@@ -70,11 +70,11 @@ L'app contient des liens vers d'autres sites (Moniteur belge, Wikimedia Commons,
 
 ## 10. Données personnelles
 
-L'app ne collecte aucune donnée personnelle. Les détails sont dans la [politique de confidentialité](https://guivdh.github.io/right-lane-site/fr/confidentialite.html).
+L'app ne collecte aucune donnée personnelle. Les détails sont dans la [politique de confidentialité](https://guivdh.github.io/right-lane-site/fr/privacy.html).
 
 ## 11. Changements
 
-Ces conditions peuvent changer. La version à jour est toujours affichée dans l'app et sur [cette page](https://guivdh.github.io/right-lane-site/fr/conditions.html), avec sa date.
+Ces conditions peuvent changer. La version à jour est toujours affichée dans l'app et sur [cette page](https://guivdh.github.io/right-lane-site/fr/terms.html), avec sa date.
 
 ## 12. Droit applicable
 
