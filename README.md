@@ -2,6 +2,7 @@
 
 Public pages of the Right Lane app, served by GitHub Pages: https://guivdh.github.io/right-lane-site/
 
+- `index.html`, `style.css`, `script.js`, `img/`, `fonts/`: the landing page that presents the app. Its source is `website/` in the app repository: edit it there, then copy these files here.
 - `fr/terms.md`: terms of use
 - `fr/privacy.md`: privacy policy
 - `fr/right-lane-guide.pdf`: printable guide with all the app content, generated in the app repository by `python scripts/export_guide.py`
