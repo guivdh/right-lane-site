@@ -4,6 +4,7 @@ Public pages of the Right Lane app, served by GitHub Pages: https://guivdh.githu
 
 - `fr/terms.md`: terms of use
 - `fr/privacy.md`: privacy policy
+- `fr/right-lane-guide.pdf`: printable guide with all the app content, generated in the app repository by `python scripts/export_guide.py`
 
 The app downloads these Markdown files from `raw.githubusercontent.com` and renders them itself, so editing a file here updates the app without a new release. The texts stay in French, the language of the app.
 
