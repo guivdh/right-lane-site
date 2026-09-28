@@ -1,6 +1,6 @@
 # Politique de confidentialité de Right Lane
 
-Version du 25 septembre 2026.
+Version du 28 septembre 2026.
 
 ## En bref
 
@@ -10,7 +10,7 @@ Right Lane ne collecte aucune donnée personnelle. Pas de compte, pas de publici
 
 Guillaume Vanden Herrewegen (Belgique), éditeur de l'app.
 
-Contact : [contact@g-vandenherrewegen.be](mailto:contact@g-vandenherrewegen.be)
+Contact : [contact@right-lane.be](mailto:contact@right-lane.be)
 
 ## 2. Ce qui reste sur ton téléphone
 
@@ -50,7 +50,7 @@ L'app peut être utilisée par des enfants : elle ne collecte aucune donnée, su
 
 ## 7. Tes droits
 
-Tu peux demander l'accès, la correction ou la suppression des données qui te concernent (par exemple un e-mail que tu as envoyé), ou t'opposer à leur traitement. Écris à [contact@g-vandenherrewegen.be](mailto:contact@g-vandenherrewegen.be).
+Tu peux demander l'accès, la correction ou la suppression des données qui te concernent (par exemple un e-mail que tu as envoyé), ou t'opposer à leur traitement. Écris à [contact@right-lane.be](mailto:contact@right-lane.be).
 
 Tu peux aussi porter plainte auprès de l'Autorité de protection des données : rue de la Presse 35, 1000 Bruxelles, [www.autoriteprotectiondonnees.be](https://www.autoriteprotectiondonnees.be).
 

@@ -1,12 +1,12 @@
 # Conditions d'utilisation de Right Lane
 
-Version du 25 septembre 2026.
+Version du 28 septembre 2026.
 
 ## 1. Qui édite l'app ?
 
 Right Lane est une application gratuite, éditée à titre personnel par Guillaume Vanden Herrewegen (Belgique).
 
-Contact : [contact@g-vandenherrewegen.be](mailto:contact@g-vandenherrewegen.be)
+Contact : [contact@right-lane.be](mailto:contact@right-lane.be)
 
 En utilisant l'app, tu acceptes ces conditions. Si tu ne les acceptes pas, n'utilise pas l'app.
 
@@ -44,7 +44,7 @@ Sur la route, c'est toujours la situation réelle, la signalisation et les indic
 
 ## 6. Erreurs et mises à jour
 
-Si tu vois une erreur, écris à [contact@g-vandenherrewegen.be](mailto:contact@g-vandenherrewegen.be). Je la corrigerai au plus vite.
+Si tu vois une erreur, écris à [contact@right-lane.be](mailto:contact@right-lane.be). Je la corrigerai au plus vite.
 
 Le contenu de l'app peut être modifié, complété ou retiré à tout moment, sans préavis. L'app peut être indisponible ou arrêtée, sans que cela donne droit à une compensation.
 
