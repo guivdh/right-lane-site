@@ -1,6 +1,6 @@
 # Politique de confidentialité de Right Lane
 
-Version du 28 septembre 2026.
+Version du 30 septembre 2026.
 
 ## En bref
 
@@ -19,6 +19,7 @@ L'app enregistre quelques réglages sur ton téléphone :
 - la taille du texte ;
 - les couleurs (thème sombre ou clair) ;
 - le fait que tu as lu l'écran d'accueil ;
+- le fait que tu as fermé le message sur le nouveau code de la route ;
 - une copie de ces conditions et de cette politique, pour pouvoir les lire sans connexion.
 
 Ces informations ne quittent jamais ton téléphone. Personne, pas même l'éditeur, n'y a accès. Elles sont effacées quand tu désinstalles l'app.
