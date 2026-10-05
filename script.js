@@ -3,7 +3,88 @@ const STORES = {
   ios: null,
 };
 
+const LOCALES = ['fr', 'nl', 'en'];
+let lang = 'fr';
+
 document.documentElement.classList.remove('no-js');
+
+function tr(key, values = {}) {
+  const text = (I18N[lang] && I18N[lang][key]) ?? I18N.fr[key] ?? key;
+  return text.replace(/\{(\w+)\}/g, (_, name) => values[name] ?? '');
+}
+
+const TARGETS = [
+  ['i18n', (el, value) => { el.innerHTML = value; }, (el) => el.innerHTML],
+  ['i18nAlt', (el, value) => { el.alt = value; }, (el) => el.alt],
+  ['i18nContent', (el, value) => { el.content = value; }, (el) => el.content],
+  ['i18nAriaLabel', (el, value) => el.setAttribute('aria-label', value), (el) => el.getAttribute('aria-label')],
+];
+
+function rememberFrench() {
+  TARGETS.forEach(([data, , read]) => {
+    document.querySelectorAll(`[data-${data.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`)}]`).forEach((el) => {
+      I18N.fr[el.dataset[data]] ??= read(el);
+    });
+  });
+}
+
+function storedLanguage() {
+  try {
+    return localStorage.getItem('rl-lang');
+  } catch {
+    return null;
+  }
+}
+
+function pickLanguage() {
+  const asked = new URLSearchParams(window.location.search).get('lang') ?? storedLanguage();
+  if (LOCALES.includes(asked)) {
+    return asked;
+  }
+  for (const code of navigator.languages ?? [navigator.language]) {
+    const short = (code || '').slice(0, 2).toLowerCase();
+    if (short === 'fr' || short === 'nl') {
+      return short;
+    }
+  }
+  return 'en';
+}
+
+function applyLanguage(next) {
+  lang = next;
+  document.documentElement.lang = lang;
+  TARGETS.forEach(([data, write]) => {
+    const attr = data.replace(/[A-Z]/g, (c) => `-${c.toLowerCase()}`);
+    document.querySelectorAll(`[data-${attr}]`).forEach((el) => write(el, tr(el.dataset[data])));
+  });
+  document.querySelectorAll('[data-lang-href]').forEach((el) => {
+    el.href = el.dataset.langHref.replace('{lang}', lang);
+  });
+  document.querySelectorAll('[data-screen]').forEach((el) => {
+    el.src = `img/screens${lang === 'fr' ? '' : `-${lang}`}/${el.dataset.screen}.webp`;
+  });
+  document.querySelectorAll('[data-sign]').forEach((el) => {
+    el.src = `img/signs/${lang === 'nl' ? 'nl/' : ''}${el.dataset.sign}.webp`;
+  });
+  document.querySelectorAll('.soon-tag').forEach((el) => {
+    el.textContent = tr('soon');
+  });
+  document.dispatchEvent(new Event('languagechange'));
+}
+
+function setupLanguage() {
+  rememberFrench();
+  const select = document.getElementById('lang');
+  const initial = pickLanguage();
+  select.value = initial;
+  applyLanguage(initial);
+  select.addEventListener('change', () => {
+    try {
+      localStorage.setItem('rl-lang', select.value);
+    } catch {}
+    applyLanguage(select.value);
+  });
+}
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -22,7 +103,7 @@ function setupStores() {
     const label = link.querySelector('span');
     const tag = document.createElement('span');
     tag.className = 'soon-tag';
-    tag.textContent = 'bientôt';
+    tag.textContent = tr('soon');
     label.append(tag);
   });
 }
@@ -91,14 +172,26 @@ function setupQuiz() {
 
   const finish = () => {
     const titles = [
-      [5, 'Sans faute ! Tu connais ton code.'],
-      [3, 'Pas mal du tout !'],
-      [0, 'Il y a des surprises, hein ?'],
+      [5, 'finishPerfect'],
+      [3, 'finishGood'],
+      [0, 'finishTry'],
     ];
-    endTitle.textContent = `${score} sur ${cards.length}. ${titles.find(([min]) => score >= min)[1]}`;
+    endTitle.textContent = `${tr('finishScore', { score, total: cards.length })} ${tr(titles.find(([min]) => score >= min)[1])}`;
     endMascot.src = score >= 3 ? 'img/mascot/well-done.webp' : 'img/mascot/offline.webp';
     end.hidden = false;
   };
+
+  const showVerdict = (card) => {
+    const truth = tr(card.dataset.answer === 'true' ? 'truthTrue' : 'truthFalse');
+    card.querySelector('.verdict').textContent = tr(card.dataset.right === 'true' ? 'verdictRight' : 'verdictWrong', { truth });
+  };
+
+  document.addEventListener('languagechange', () => {
+    cards.filter((card) => card.dataset.right).forEach(showVerdict);
+    if (!end.hidden) {
+      finish();
+    }
+  });
 
   cards.forEach((card, index) => {
     const buttons = card.querySelectorAll('[data-choice]');
@@ -111,8 +204,8 @@ function setupQuiz() {
         button.classList.add('picked');
         card.classList.add(right ? 'right' : 'wrong');
         const result = card.querySelector('.qresult');
-        const truth = card.dataset.answer === 'true' ? 'vrai' : 'faux';
-        result.querySelector('.verdict').textContent = right ? `Bien vu, c'est ${truth} !` : `Eh non, c'est ${truth}.`;
+        card.dataset.right = right;
+        showVerdict(card);
         result.hidden = false;
         answered += 1;
         if (right) {
@@ -220,6 +313,7 @@ function setupTilt() {
   });
 }
 
+setupLanguage();
 setupStores();
 setupHeader();
 setupReveal();

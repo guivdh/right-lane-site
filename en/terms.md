@@ -14,13 +14,13 @@ By using the app, you accept these terms. If you don't accept them, don't use th
 
 Right Lane helps cyclists understand the Belgian Highway Code. It's a learning aid.
 
-The app covers Wallonia and the Royal Decree of 1 December 1975 (the Highway Code currently in force). On 1 June 2027, a new Public Highway Code replaces it. From then on, the app's explanations will no longer be up to date.
+The app covers all of Belgium (Brussels, Flanders and Wallonia) and the Royal Decree of 1 December 1975 (the Highway Code currently in force). When a rule isn't the same in the three regions, the app gives each region's version. On 1 June 2027, a new Public Highway Code replaces it. From then on, the app's explanations will no longer be up to date.
 
 ## 3. It is not an official source
 
 The explanations are a personal reading of the Highway Code. They are written with care, but they are simplified. They may be incomplete, contain mistakes or be out of date.
 
-Right Lane has no connection with the Belgian authorities, the police, Vias institute or the Public Service of Wallonia.
+Right Lane has no connection with the Belgian authorities, the police, Vias institute or the regional administrations (Brussels, Flanders, Wallonia).
 
 It is not legal advice. The explanations stay general and don't take your own situation into account. For a specific question, contact a lawyer or a competent service.
 

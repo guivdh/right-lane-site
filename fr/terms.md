@@ -1,6 +1,6 @@
 # Conditions d'utilisation de Right Lane
 
-Version du 28 septembre 2026.
+Version du 5 octobre 2026.
 
 ## 1. Qui édite l'app ?
 
@@ -14,13 +14,13 @@ En utilisant l'app, tu acceptes ces conditions. Si tu ne les acceptes pas, n'uti
 
 Right Lane aide les cyclistes à comprendre le code de la route belge. C'est une aide pédagogique.
 
-L'app couvre la Wallonie et l'arrêté royal du 1er décembre 1975 (le code de la route actuellement en vigueur). Le 1er juin 2027, un nouveau Code de la voie publique le remplace. Les explications de l'app ne seront alors plus à jour.
+L'app couvre toute la Belgique (Bruxelles, Flandre et Wallonie) et l'arrêté royal du 1er décembre 1975 (le code de la route actuellement en vigueur). Quand une règle n'est pas la même dans les trois régions, l'app donne la version de chaque région. Le 1er juin 2027, un nouveau Code de la voie publique le remplace. Les explications de l'app ne seront alors plus à jour.
 
 ## 3. Ce n'est pas une source officielle
 
 Les explications sont une interprétation personnelle du code de la route. Elles sont écrites avec soin, mais elles sont simplifiées. Elles peuvent être incomplètes, contenir des erreurs ou ne plus être à jour.
 
-Right Lane n'a aucun lien avec les autorités belges, la police, Vias institute ou le Service public de Wallonie.
+Right Lane n'a aucun lien avec les autorités belges, la police, Vias institute ou les administrations régionales (Bruxelles, Flandre, Wallonie).
 
 Ce n'est pas un avis juridique. Les explications restent générales et ne tiennent pas compte de ta situation. Pour une question précise, adresse-toi à un avocat ou à un service compétent.
 
