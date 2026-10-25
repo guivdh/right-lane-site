@@ -1,303 +1,233 @@
 <!doctype html>
-<html lang="fr" class="no-js">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-i18n="metaTitle">Right Lane · Prends la bonne voie</title>
+  <title data-i18n="metaTitle">Right Lane · Le code de la route à vélo</title>
   <meta name="description" data-i18n-content="metaDescription" content="Right Lane explique aux cyclistes ce que dit vraiment le code de la route belge. Une règle par écran, des schémas, les panneaux et le texte officiel. Sans compte, sans pub, hors connexion.">
-  <meta name="theme-color" content="#F6F0E1">
+  <meta name="theme-color" content="#111315">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://right-lane.be/">
   <meta property="og:title" data-i18n-content="ogTitle" content="Right Lane · Le code de la route à vélo, enfin clair">
   <meta property="og:description" data-i18n-content="ogDescription" content="Une app pour savoir ce que dit vraiment la loi quand tu roules à vélo en Belgique.">
-  <meta property="og:image" content="img/stickers/01-bike-lane.webp">
-  <meta property="og:locale" content="fr_BE">
-  <meta property="og:locale:alternate" content="nl_BE">
-  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:image" content="https://right-lane.be/img/social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/icon-192.png">
-  <link rel="preload" href="fonts/AtkinsonHyperlegibleNext-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/AtkinsonHyperlegibleNext-ExtraBold.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="lane" aria-hidden="true">
-    <img class="lane-bike" src="img/bike-marking.webp" alt="">
+  <a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+  <div class="banner" id="banner" hidden>
+    <div class="wrap">
+      <p data-i18n="banner">Le code de la route change le 1<sup>er</sup> juin 2027. <a href="#code-2027">Ce qu'il faut savoir</a></p>
+      <button type="button" data-close-banner data-i18n="bannerClose">Fermer le message</button>
+    </div>
   </div>
 
-  <header class="top">
-    <a class="brand" href="#">
-      <img src="img/logo.webp" alt="" width="40" height="40">
-      <span>Right Lane</span>
-    </a>
-    <div class="top-actions">
-      <label class="lang">
-        <span class="sr-only" data-i18n="language">Langue</span>
-        <select id="lang">
-          <option value="fr">FR</option>
-          <option value="nl">NL</option>
-          <option value="en">EN</option>
-        </select>
-      </label>
-      <a class="pill pill-small" href="#telecharger" data-i18n="navDownload">Télécharger</a>
+  <header class="nav">
+    <div class="wrap nav-bar">
+      <a class="brand" href="#top"><img src="img/logo.webp" alt="" width="34" height="34"><span>Right Lane</span></a>
+      <nav class="nav-links" data-i18n-aria-label="navLabel" aria-label="Sections"></nav>
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu"></button>
+      <div class="lang" role="group" data-i18n-aria-label="language" aria-label="Langue">
+        <button type="button" data-lang="fr" lang="fr">FR</button>
+        <button type="button" data-lang="nl" lang="nl">NL</button>
+        <button type="button" data-lang="en" lang="en">EN</button>
+      </div>
     </div>
+    <nav class="menu" id="menu" aria-label="Menu"></nav>
+    <span class="progress" aria-hidden="true"></span>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-text intro">
-        <p class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">Belgique · Code de la route</span></p>
-        <h1 data-i18n="heroTitle">Le code de la route à vélo, <span class="marker">enfin clair.</span></h1>
-        <p class="lead" data-i18n="heroLead">Est-ce que je dois prendre la piste ? Puis-je rouler à deux ? Et ce panneau, il veut dire quoi ? Right Lane te répond en une phrase, avec un schéma et le texte officiel.</p>
-        <div class="stores">
-          <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=be.codevelo.app">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14.2-8.5a1 1 0 0 0 0-1.72L6.5 2.64A1 1 0 0 0 5 3.5Z"/></svg>
-            <span><small data-i18n="storeOn">Télécharger sur</small>Google Play</span>
-          </a>
-          <a class="store" data-store="ios" href="#telecharger">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><circle cx="12" cy="18.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-            <span><small data-i18n="storeOn">Télécharger sur</small><span data-i18n="appStore">l'App Store</span></span>
-          </a>
+  <nav class="rail" data-i18n-aria-label="railLabel" aria-label="Parcours de la page">
+    <div class="rail-road"><span class="rail-done"></span></div>
+    <ol></ol>
+    <span class="rail-me" aria-hidden="true"></span>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="scene" aria-hidden="true" data-road></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">Belgique · Code de la route</p>
+          <h1 data-i18n="heroTitle">Le code de la route à vélo, <span class="hl">enfin clair.</span></h1>
+          <p class="lead" data-i18n="heroLead">Est-ce que je dois prendre la piste&nbsp;? Puis-je rouler à deux&nbsp;? Et ce panneau, il veut dire quoi&nbsp;? Right Lane te répond en une phrase, avec un schéma et le texte officiel.</p>
+          <div class="stores" data-stores></div>
+          <ul class="checks" data-checks></ul>
         </div>
-        <ul class="trust">
-          <li data-i18n="trustAccount">Sans compte</li>
-          <li data-i18n="trustAds">Sans pub</li>
-          <li data-i18n="trustOffline">Marche hors connexion</li>
-        </ul>
+        <div class="stage">
+          <div class="phone hero-phone">
+            <img class="screen" data-screen="home" data-i18n-alt="altHome" src="img/screens/home.webp" alt="L'accueil de l'app Right Lane." width="390" height="844" fetchpriority="high">
+            <img class="float s1" src="img/signs/D7.webp" alt="" width="80" height="80">
+            <img class="float s2" src="img/signs/B22.webp" alt="" width="66" height="58">
+            <p class="float bubble" aria-hidden="true"><small data-i18n="bubbleLabel">La réponse en une phrase</small><span data-i18n="a1">Au feu rouge, tu peux te placer devant les voitures.</span></p>
+            <span class="shadow"></span>
+          </div>
+        </div>
       </div>
-      <div class="hero-visual">
-        <div class="sun" aria-hidden="true"></div>
-        <figure class="phone phone-hero">
-          <img data-screen="home" data-i18n-alt="altHome" src="img/screens/home.webp" alt="L'accueil de l'app Right Lane : « Que dit le code quand je roule ? » et la fiche Pistes cyclables." width="390" height="844">
-        </figure>
-        <img class="sticker s-welcome pop-in" src="img/mascot/welcome.webp" alt="" width="240">
-        <img class="sticker s-hand pop-in" src="img/stickers/02-hand-signal.webp" alt="" width="200">
-        <img class="sign-float s-d7 pop-in" src="img/signs/D7.webp" alt="" width="64">
-      </div>
+      <a class="scroll-cue" href="#quiz"><b data-i18n="scrollCue">Descends la route</b><span></span></a>
     </section>
 
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track" data-i18n="ticker">
-        <span>Sas vélo</span><span>Piste D7</span><span>Rouler à deux</span><span>Lumières la nuit</span><span>Tendre le bras</span><span>Zone cyclable</span><span>Feu rouge B22</span><span>Sens unique limité</span><span>Passage pour piétons</span><span>Distance de dépassement</span>
-        <span>Sas vélo</span><span>Piste D7</span><span>Rouler à deux</span><span>Lumières la nuit</span><span>Tendre le bras</span><span>Zone cyclable</span><span>Feu rouge B22</span><span>Sens unique limité</span><span>Passage pour piétons</span><span>Distance de dépassement</span>
-      </div>
-    </div>
-
-    <section class="quiz" id="quiz">
-      <div class="section-head">
-        <p class="eyebrow on-dark"><span class="dot"></span><span data-i18n="quizEyebrow">Petit test</span></p>
-        <h2 data-i18n="quizTitle">Vrai ou faux ?</h2>
-        <p data-i18n="quizLead">Cinq situations de tous les jours. Les réponses viennent de l'app, et de la loi.</p>
-      </div>
-      <div class="quiz-score" aria-live="polite"><span class="score-value">0</span> / <span class="score-total">5</span> <span data-i18n="quizScore">bonnes réponses</span></div>
-      <ol class="quiz-cards">
-        <li class="qcard" data-answer="true">
-          <div class="qhead"><span class="qnum">01</span></div>
-          <p class="qtext" data-i18n="q1">Au feu rouge, je peux me placer devant les voitures, dans le sas vélo.</p>
-          <div class="qbuttons"><button type="button" data-choice="true" data-i18n="true">Vrai</button><button type="button" data-choice="false" data-i18n="false">Faux</button></div>
-          <div class="qresult" hidden>
-            <p class="verdict"></p>
-            <p class="qanswer" data-i18n="a1">Au feu rouge, tu peux te placer devant les voitures.</p>
-            <p class="qrule" data-i18n="r1">Règle « Le sas vélo aux feux »</p>
-          </div>
-        </li>
-        <li class="qcard" data-answer="false">
-          <div class="qhead"><span class="qnum">02</span><img class="qsign" src="img/signs/F99a.webp" data-i18n-alt="altF99a" alt="Panneau F99a : chemin réservé" width="56"></div>
-          <p class="qtext" data-i18n="q2">Un chemin réservé avec ce panneau, c'est une piste cyclable.</p>
-          <div class="qbuttons"><button type="button" data-choice="true" data-i18n="true">Vrai</button><button type="button" data-choice="false" data-i18n="false">Faux</button></div>
-          <div class="qresult" hidden>
-            <p class="verdict"></p>
-            <p class="qanswer" data-i18n="a2">Ce n'est pas une piste cyclable. Vitesse maximale : 30 km/h.</p>
-            <p class="qrule" data-i18n="r2">Règle « Chemin réservé (F99) : quelles règles ? »</p>
-          </div>
-        </li>
-        <li class="qcard" data-answer="true">
-          <div class="qhead"><span class="qnum">03</span></div>
-          <p class="qtext" data-i18n="q3">Sur la chaussée, on peut rouler à deux de front.</p>
-          <div class="qbuttons"><button type="button" data-choice="true" data-i18n="true">Vrai</button><button type="button" data-choice="false" data-i18n="false">Faux</button></div>
-          <div class="qresult" hidden>
-            <p class="verdict"></p>
-            <p class="qanswer" data-i18n="a3">Oui sur la chaussée, sauf quand on ne peut pas se croiser.</p>
-            <p class="qrule" data-i18n="r3">Règle « Puis-je rouler à deux de front ? »</p>
-          </div>
-        </li>
-        <li class="qcard" data-answer="false">
-          <div class="qhead"><span class="qnum">04</span><img class="qsign" data-sign="F111" src="img/signs/F111.webp" data-i18n-alt="altF111" alt="Panneau F111 : zone cyclable" width="56"></div>
-          <p class="qtext" data-i18n="q4">Dans une zone cyclable, une voiture peut me dépasser si elle roule doucement.</p>
-          <div class="qbuttons"><button type="button" data-choice="true" data-i18n="true">Vrai</button><button type="button" data-choice="false" data-i18n="false">Faux</button></div>
-          <div class="qresult" hidden>
-            <p class="verdict"></p>
-            <p class="qanswer" data-i18n="a4">Les voitures peuvent y entrer, mais pas te dépasser. 30 km/h maximum.</p>
-            <p class="qrule" data-i18n="r4">Règle « Zone cyclable : quelles règles ? »</p>
-          </div>
-        </li>
-        <li class="qcard" data-answer="false">
-          <div class="qhead"><span class="qnum">05</span></div>
-          <p class="qtext" data-i18n="q5">En agglomération, une voiture qui me dépasse lentement peut passer tout près de moi.</p>
-          <div class="qbuttons"><button type="button" data-choice="true" data-i18n="true">Vrai</button><button type="button" data-choice="false" data-i18n="false">Faux</button></div>
-          <div class="qresult" hidden>
-            <p class="verdict"></p>
-            <p class="qanswer" data-i18n="a5">Au moins 1 mètre. Hors agglomération, au moins 1,5 mètre.</p>
-            <p class="qrule" data-i18n="r5">Règle « Quelle distance une voiture doit-elle garder avec moi ? »</p>
-          </div>
-        </li>
-      </ol>
-      <div class="quiz-end" hidden>
-        <img class="quiz-mascot" src="img/mascot/well-done.webp" alt="" width="160">
+    <section class="section" id="quiz" data-km="1" data-nav="navQuiz">
+      <div class="wrap quiz-wrap">
+        <div class="quiz-side">
+          <p class="eyebrow"><span class="km"><span>KM 1</span></span> <span data-i18n="quizEyebrow">Petit test</span></p>
+          <h2 data-i18n="quizTitle">Vrai ou faux&nbsp;?</h2>
+          <p class="lead" data-i18n="quizLead">Cinq situations de tous les jours. Les réponses viennent de l'app, et de la loi.</p>
+          <p class="score" aria-live="polite"><strong class="sv">0</strong><span></span></p>
+        </div>
         <div>
-          <p class="quiz-end-title"></p>
-          <p data-i18n="quizEnd">Il y a 102 règles et conseils comme ça dans l'app, chacun sur son écran.</p>
-          <a class="pill" href="#telecharger" data-i18n="quizCta">Je veux l'app</a>
+          <div class="trip" aria-hidden="true"><span class="trip-done"></span><img class="trip-bike" src="img/bike-marking.webp" alt="" width="40" height="21"></div>
+          <div class="qstage" aria-live="polite"><div class="qcard"></div></div>
         </div>
       </div>
     </section>
 
-    <section class="how" id="app">
-      <div class="section-head">
-        <p class="eyebrow"><span class="dot"></span><span data-i18n="howEyebrow">Dans l'app</span></p>
-        <h2 data-i18n="howTitle">Une question, une réponse. <span class="nowrap">Pas un pavé.</span></h2>
-      </div>
-      <ol class="steps">
-        <li class="step reveal">
-          <figure class="phone"><img data-screen="rule-bike-box" data-i18n-alt="altBikeBox" src="img/screens/rule-bike-box.webp" alt="Écran de la règle « Le sas vélo aux feux » : la réponse courte, puis un schéma vu du dessus." width="390" height="844" loading="lazy"></figure>
-          <div class="step-text">
-            <span class="step-num">1</span>
-            <h3 data-i18n="step1Title">La réponse d'abord</h3>
-            <p data-i18n="step1Body">Chaque règle tient sur un écran. La réponse courte est en haut, en gros. Le détail vient après, si tu veux.</p>
+    <section class="section" id="demo" data-km="2" data-nav="navDemo">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow"><span class="km"><span>KM 2</span></span> <span data-i18n="demoEyebrow">Mini démo</span></p>
+          <h2 data-i18n="demoTitle">Essaie l'app ici</h2>
+          <p class="sub" data-i18n="demoLead">Choisis une étape&nbsp;: tu vois le vrai écran de l'app.</p>
+        </div>
+        <div class="demo">
+          <ol class="steps"></ol>
+          <div class="demo-side">
+            <div class="demo-phone">
+              <div class="phone"><img class="screen" src="img/screens/card.webp" alt="" width="390" height="844" loading="lazy"><span class="shadow"></span></div>
+            </div>
+            <div class="demo-nav">
+              <button type="button" class="btn btn-line" data-step="-1" data-i18n="previous">Précédente</button>
+              <span class="count" aria-live="polite">1 / 5</span>
+              <button type="button" class="btn" data-step="1" data-i18n="next">Suivante</button>
+            </div>
           </div>
-          <img class="sticker step-sticker" src="img/stickers/04-red-light.webp" alt="" width="150" loading="lazy">
-        </li>
-        <li class="step reveal">
-          <figure class="phone"><img data-screen="rule-overtaking" data-i18n-alt="altOvertaking" src="img/screens/rule-overtaking.webp" alt="Écran de la règle sur la distance de dépassement : deux schémas, 1 mètre en agglomération et 1,5 mètre hors agglomération." width="390" height="844" loading="lazy"></figure>
-          <div class="step-text">
-            <span class="step-num">2</span>
-            <h3 data-i18n="step2Title">Des schémas vus du dessus</h3>
-            <p data-i18n="step2Body">Toi en jaune, les autres en gris. En un coup d'œil, tu vois qui passe, où te placer et quelle distance garder.</p>
-          </div>
-          <img class="sticker step-sticker" src="img/stickers/06-teacher.webp" alt="" width="150" loading="lazy">
-        </li>
-        <li class="step reveal">
-          <figure class="phone"><img data-screen="sign-d7" data-i18n-alt="altSign" src="img/screens/sign-d7.webp" alt="Le panneau D7 affiché en grand, avec son explication : piste cyclable obligatoire." width="390" height="844" loading="lazy"></figure>
-          <div class="step-text">
-            <span class="step-num">3</span>
-            <h3 data-i18n="step3Title">Touche un panneau</h3>
-            <p data-i18n="step3Body">Un code comme D7 dans le texte ? Touche-le : le vrai panneau s'affiche en grand, avec ce qu'il veut dire.</p>
-          </div>
-          <img class="sticker step-sticker" src="img/stickers/07-rulebook.webp" alt="" width="150" loading="lazy">
-        </li>
-      </ol>
-    </section>
-
-    <section class="law">
-      <div class="law-grid">
-        <article class="law-card reveal">
-          <span class="law-icon" aria-hidden="true">§</span>
-          <h3 data-i18n="lawTitle">La loi, rien que la loi</h3>
-          <p data-i18n="lawBody">Chaque règle cite ses articles du code de la route (arrêté royal du 1<sup>er</sup> décembre 1975). Le texte officiel est à un toucher, mot pour mot. Quand une règle n'est pas la même à Bruxelles, en Flandre et en Wallonie, l'app donne la version de chaque région.</p>
-        </article>
-        <article class="law-card advice reveal">
-          <span class="law-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></svg>
-          </span>
-          <h3 data-i18n="adviceTitle">Et des conseils, bien séparés</h3>
-          <p data-i18n="adviceBody">Ce qui n'est pas dans la loi mais te protège vient à part, avec sa source (Vias, Sécurothèque, VSV). Jamais présenté comme une obligation.</p>
-        </article>
-        <img class="sticker law-sticker" src="img/stickers/08-lightbulb.webp" alt="" width="200" loading="lazy">
-      </div>
-    </section>
-
-    <section class="cards" id="fiches">
-      <div class="section-head">
-        <p class="eyebrow"><span class="dot"></span><span data-i18n="cardsEyebrow">4 fiches, 102 règles et conseils</span></p>
-        <h2 data-i18n="cardsTitle">Tout ce qui compte quand tu pédales</h2>
-      </div>
-      <ul class="card-list">
-        <li class="fiche reveal" style="--tone: var(--red)">
-          <img src="img/stickers/01-bike-lane.webp" alt="" width="160" loading="lazy">
-          <h3 data-i18n="card1Title">Pistes cyclables</h3>
-          <p data-i18n="card1Body">Les reconnaître, quand tu dois les prendre, quand tu peux les quitter.</p>
-          <span class="fiche-count" data-i18n="card1Count">32 règles · 4 chapitres</span>
-        </li>
-        <li class="fiche reveal" style="--tone: var(--yellow)">
-          <img src="img/stickers/09-bike-check.webp" alt="" width="160" loading="lazy">
-          <h3 data-i18n="card2Title">Équipement du vélo</h3>
-          <p data-i18n="card2Body">Freins, sonnette, lumières, téléphone et écouteurs : ce qui est obligatoire.</p>
-          <span class="fiche-count" data-i18n="card2Count">19 règles · 4 chapitres</span>
-        </li>
-        <li class="fiche reveal" style="--tone: var(--ink)">
-          <img src="img/stickers/05-pedestrian-crossing.webp" alt="" width="160" loading="lazy">
-          <h3 data-i18n="card3Title">Rouler avec les autres</h3>
-          <p data-i18n="card3Body">Tendre le bras, les piétons, rouler à plusieurs, les bus et la vitesse.</p>
-          <span class="fiche-count" data-i18n="card3Count">27 règles · 6 chapitres</span>
-        </li>
-        <li class="fiche reveal" style="--tone: var(--sky)">
-          <img src="img/stickers/04-red-light.webp" alt="" width="160" loading="lazy">
-          <h3 data-i18n="card4Title">Panneaux et marquages</h3>
-          <p data-i18n="card4Body">Priorités, feux, sens interdits, zones : ce que chaque panneau te demande.</p>
-          <span class="fiche-count" data-i18n="card4Count">24 règles · 6 chapitres</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="promise">
-      <div class="promise-inner">
-        <img class="sticker promise-sticker reveal" src="img/stickers/03-night-lights.webp" alt="" width="220" loading="lazy">
-        <div>
-          <h2 data-i18n="promiseTitle">Pensée pour tout le monde</h2>
-          <ul class="promise-list">
-            <li data-i18n="promise1"><strong>Lisible.</strong> Grand texte, une police faite pour les personnes qui voient mal, thème sombre ou clair.</li>
-            <li data-i18n="promise2"><strong>Discrète.</strong> Pas de compte, pas de pub, aucune donnée collectée.</li>
-            <li data-i18n="promise3"><strong>Toujours là.</strong> Tout est dans l'app : elle marche sans connexion, même au milieu de nulle part.</li>
-            <li data-i18n="promise4"><strong>Dans ta langue.</strong> En français, en néerlandais ou en anglais.</li>
-          </ul>
         </div>
       </div>
     </section>
 
-    <section class="honest">
-      <div class="honest-card reveal">
-        <img class="sticker" src="img/mascot/offline.webp" alt="" width="130" loading="lazy">
+    <section class="section" id="features" data-km="3" data-nav="navFeatures">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow"><span class="km"><span>KM 3</span></span> <span data-i18n="featuresEyebrow">Fonctionnalités</span></p>
+          <h2 data-i18n="featuresTitle">Tout ce qu'il faut, rien de plus</h2>
+        </div>
+        <ul class="features"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="screens" data-km="4" data-nav="navScreens">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow"><span class="km"><span>KM 4</span></span> <span data-i18n="screensEyebrow">Captures d'écran</span></p>
+          <h2 data-i18n="screensTitle">L'app en images</h2>
+        </div>
+      </div>
+      <div class="flow" tabindex="0" data-i18n-aria-label="flowLabel" aria-label="L'app en images. Flèches gauche et droite pour changer d'écran."></div>
+      <div class="wrap flow-bar">
+        <button type="button" class="round" data-flow="-1" data-i18n-aria-label="prevScreen" aria-label="Écran précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <p class="flow-cap" aria-live="polite"></p>
+        <button type="button" class="round" data-flow="1" data-i18n-aria-label="nextScreen" aria-label="Écran suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </section>
+
+    <section class="section" id="cards" data-km="5" data-nav="navCards">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow"><span class="km"><span>KM 5</span></span> <span data-i18n="cardsEyebrow">{cards} fiches, {rules} règles et conseils</span></p>
+          <h2 data-i18n="cardsTitle">Tout ce qui compte quand tu pédales</h2>
+        </div>
+        <ul class="cards"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="stats" data-km="6" data-nav="navStats">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow"><span class="km"><span>KM 6</span></span> <span data-i18n="statsEyebrow">Les chiffres</span></p>
+          <h2 data-i18n="statsTitle">Les accidents de vélo en Belgique</h2>
+          <p class="sub" data-i18n="statsLead">Les chiffres officiels&nbsp;: les accidents sur les routes belges enregistrés par la police. Ils sont aussi dans l'app, région par région.</p>
+        </div>
+        <div class="stats">
+          <div class="keys reveal">
+            <p class="key"><strong data-count="dead"></strong><span data-i18n="statsKilled">cyclistes tués en 2025</span></p>
+            <p class="key"><strong data-count="serious"></strong><span data-i18n="statsSerious">blessés graves</span></p>
+            <p class="key"><strong data-count="slight"></strong><span data-i18n="statsSlight">blessés légers</span></p>
+          </div>
+          <div class="panel reveal">
+            <h3 data-i18n="chartTitle">Cyclistes tués ou blessés, chaque année</h3>
+            <div class="chart" role="group" data-i18n-aria-label="chartLabel" aria-label="Cyclistes tués ou blessés par année, de 2015 à 2025"></div>
+            <p class="chart-read" aria-live="polite"></p>
+          </div>
+          <div class="panel reveal">
+            <h3 class="facts-title"></h3>
+            <div class="facts"></div>
+          </div>
+          <p class="stats-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="code-2027" data-km="7" data-nav="nav2027">
+      <div class="wrap">
+        <div class="sign-board reveal">
+          <div class="flap">
+            <div class="flap-digits" aria-hidden="true"></div>
+            <small class="flap-label"></small>
+          </div>
+          <div>
+            <p class="tag" data-i18n="changeTag">Bientôt</p>
+            <h2 data-i18n="changeTitle">Le code de la route change le 1<sup>er</sup> juin 2027.</h2>
+            <p data-i18n="change1">Ce jour-là, un nouveau Code de la voie publique remplace le code d'aujourd'hui. Right Lane explique le code en vigueur maintenant.</p>
+            <p data-i18n="change2">L'app sera mise à jour à ce moment-là.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap info reveal">
         <div>
+          <p class="eyebrow" data-i18n="infoEyebrow">À savoir</p>
           <h2 data-i18n="honestTitle">Soyons clairs</h2>
           <p data-i18n="honest1">Right Lane est une aide pour apprendre, pas un avis juridique. En cas de doute, c'est le texte publié au Moniteur belge qui compte.</p>
-          <p data-i18n="honest2">Le code de la route change le 1<sup>er</sup> juin 2027. L'app sera mise à jour à ce moment-là.</p>
         </div>
+        <a class="guide" data-lang-href="https://right-lane.be/{lang}/right-lane-guide.pdf" href="https://right-lane.be/fr/right-lane-guide.pdf">
+          <span class="guide-icon" aria-hidden="true">PDF</span>
+          <span data-i18n="guide"><strong>Plutôt sur papier&nbsp;?</strong> Le guide complet en PDF, à imprimer ou à partager.</span>
+        </a>
       </div>
-      <a class="guide reveal" data-lang-href="https://right-lane.be/{lang}/right-lane-guide.pdf" href="https://right-lane.be/fr/right-lane-guide.pdf">
-        <span class="guide-icon" aria-hidden="true">PDF</span>
-        <span data-i18n="guide"><strong>Plutôt sur papier ?</strong> Le guide complet en PDF, à imprimer ou à partager.</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
     </section>
 
-    <section class="final" id="telecharger">
-      <img class="final-mascot" src="img/mascot/keep-right.webp" alt="" width="220" loading="lazy">
-      <h2 data-i18n="finalTitle">Prends la <span class="marker">bonne voie.</span></h2>
-      <p data-i18n="finalLead">Right Lane, le code de la route expliqué aux cyclistes.</p>
-      <div class="stores stores-center">
-        <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=be.codevelo.app">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14.2-8.5a1 1 0 0 0 0-1.72L6.5 2.64A1 1 0 0 0 5 3.5Z"/></svg>
-          <span><small data-i18n="storeOn">Télécharger sur</small>Google Play</span>
-        </a>
-        <a class="store" data-store="ios" href="#telecharger">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><circle cx="12" cy="18.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-          <span><small data-i18n="storeOn">Télécharger sur</small><span data-i18n="appStore">l'App Store</span></span>
-        </a>
+    <section class="cta" id="download" data-km="8" data-nav="navDownload">
+      <div class="scene" aria-hidden="true" data-road></div>
+      <div class="wrap">
+        <img class="cta-mascot" src="img/mascot/keep-right.webp" alt="" width="160" height="185" loading="lazy">
+        <h2 data-i18n="finalTitle">Prends la <span class="hl">bonne voie.</span></h2>
+        <p class="sub" data-i18n="finalLead">Right Lane, le code de la route expliqué aux cyclistes.</p>
+        <div class="stores" data-stores></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer-brand">
-      <img src="img/logo.webp" alt="" width="36" height="36">
-      <span>Right Lane</span>
+    <div class="wrap footer-grid">
+      <a class="brand" href="#top"><img src="img/logo.webp" alt="" width="28" height="28" loading="lazy"><span>Right Lane</span></a>
+      <nav data-i18n-aria-label="footerNav" aria-label="Liens">
+        <a data-lang-href="https://right-lane.be/{lang}/right-lane-guide.pdf" href="https://right-lane.be/fr/right-lane-guide.pdf" data-i18n="footerGuide">Guide PDF</a>
+        <a data-lang-href="https://right-lane.be/{lang}/terms.html" href="https://right-lane.be/fr/terms.html" data-i18n="footerTerms">Conditions d'utilisation</a>
+        <a data-lang-href="https://right-lane.be/{lang}/privacy.html" href="https://right-lane.be/fr/privacy.html" data-i18n="footerPrivacy">Confidentialité</a>
+        <a href="mailto:contact@right-lane.be" data-i18n="footerContact">Contact</a>
+      </nav>
+      <p class="credits" data-i18n="credits">Panneaux&nbsp;: Wikimedia Commons, domaine public. Police&nbsp;: Atkinson Hyperlegible Next (SIL Open Font License). Aide pédagogique, pas un avis juridique.</p>
     </div>
-    <nav class="footer-links" data-i18n-aria-label="footerNav" aria-label="Liens">
-      <a data-lang-href="https://right-lane.be/{lang}/right-lane-guide.pdf" href="https://right-lane.be/fr/right-lane-guide.pdf" data-i18n="footerGuide">Guide PDF</a>
-      <a data-lang-href="https://right-lane.be/{lang}/terms.html" href="https://right-lane.be/fr/terms.html" data-i18n="footerTerms">Conditions d'utilisation</a>
-      <a data-lang-href="https://right-lane.be/{lang}/privacy.html" href="https://right-lane.be/fr/privacy.html" data-i18n="footerPrivacy">Confidentialité</a>
-      <a href="mailto:contact@right-lane.be" data-i18n="footerContact">Contact</a>
-    </nav>
-    <p class="credits" data-i18n="credits">Panneaux : Wikimedia Commons, domaine public. Police : Atkinson Hyperlegible Next (SIL Open Font License). Aide pédagogique, pas un avis juridique.</p>
   </footer>
 
+  <script src="content.js"></script>
   <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>

@@ -2,7 +2,7 @@
 
 Public pages of the Right Lane app, served by GitHub Pages: https://right-lane.be/
 
-- `index.html`, `style.css`, `script.js`, `i18n.js`, `img/`, `fonts/`: the landing page that presents the app, in French, Dutch and English (language menu in the header; `i18n.js` holds the Dutch and English texts). Its source is `website/` in the app repository: edit it there, then copy these files here.
+- `index.html`, `style.css`, `script.js`, `i18n.js`, `content.js`, `img/`, `fonts/`: the landing page that presents the app, in French, Dutch and English (language menu in the header; `i18n.js` holds the texts, `content.js` the guides and accident figures). Its source is `website/` in the app repository: edit it there, then copy these files here.
 - `fr/terms.md`: terms of use
 - `fr/privacy.md`: privacy policy
 - `nl/terms.md`, `nl/privacy.md`, `en/terms.md`, `en/privacy.md`: the same pages in Dutch and English (the French version is the reference)
